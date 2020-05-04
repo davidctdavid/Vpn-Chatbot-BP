@@ -35,8 +35,7 @@ class WelcomeBot extends ActivityHandler {
                 // await context.sendActivity(`Es una buena práctica dar la bienvenida al usuario y brindar un saludo personal. Por ejemplo, bienvenido ${userName}.`);
                 await context.sendActivity(`Hola, ${context.activity.text}.`);
                 await context.sendActivity('Estoy dispuesto a solucionar tu problema de VPN🧑‍💻 si deseas iniciar una conversación. ' +
-                    'Puedes llamarme con las siguientes palabras claves: \'hola\', \'Buenas tardes\', \'ayuda\' , \'inicio\'. ' +
-                    'Pruébalo ahora, escribe \'hola\'');
+                    'Puedes llamarme con las siguientes palabras claves: \'hola\', \'ayuda\' , \'inicio\'. ');
                 // Set the flag indicating the bot handled the user's first message.
                 await this.welcomedUserProperty.set(context, true);
             } else {
@@ -54,28 +53,34 @@ class WelcomeBot extends ActivityHandler {
                         await context.sendActivity('¡Bienvenido!👋 Colaborar de Banco Pichincha🧑‍💼, estoy dispuesto ayudarte para comenzar escribe (inicio).');
 
                         break;
+                    case 'analizar':
+                    case 'Analizar':
+                        await context.sendActivity('Por favor, ingresa el nombre de tu usuario VPN: ');
+                        await context.sendActivity('Por favor, ingresa el nombre de tu equipo: ');
+                        break;
                     case 'inicio':
+                    case 'Inicio':
                     case 'ayuda':
 
                         await this.sendSuggestedActions(context);
                         break;
                     case 'salir':
+                    case 'Salir':
                         await context.sendActivity('Adios, espero poder haber ayudado en tu problema');
 
                         break;
+
                     case 'soluciones':
+                    case 'Soluciones':
+                        //console.log(context);
 
-                        await context.sendActivity('mira la siquiente soluciones');
+                        // await context.sendActivity('mira la siquiente soluciones');
                         await this.sendIntroCard(context);
-
                         break;
 
-                    default:
 
-                        await context.sendActivity('Hola👋 ¡Bienvenido! a VPN Chatbot BP 🤖');
-                        await context.sendActivity('Estoy dispuesto a solucionar tu problema de VPN si deseas iniciar una conversación. ' +
-                            'Puedes llamarme con las siguientes palabras claves: \'hola\', \'Buenas tardes\', \'ayuda\' , \'inicio\'. ' +
-                            'Pruébalo ahora, escribe \'hola\'');
+                    default:
+                        await context.sendActivity('Hola👋 ¡Bienvenido! a VPN Chatbot BP 🤖🤖 ');
                 }
             }
 
@@ -145,8 +150,8 @@ class WelcomeBot extends ActivityHandler {
             '¡Bienvenido al Chatbot!',
             'Selecciona una de las opciones: ',
             ['¿Quieres ver soluciones de errores comunes?'],
-
             ['¿Quieres ver soluciones de errores comunes?']
+
         );
 
 
@@ -224,7 +229,7 @@ class WelcomeBot extends ActivityHandler {
                                 "size": "Medium",
                                 "wrap": true
                             },
-                           
+
                             {
                                 "type": "Input.Text",
                                 "id": "SteakOther",
@@ -291,7 +296,7 @@ class WelcomeBot extends ActivityHandler {
                     "type": "Action.ShowCard",
                     "title": "Tofu"
                 }
-                
+
             ]
         });
 

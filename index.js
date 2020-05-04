@@ -38,8 +38,8 @@ adapter.onTurnError = async (context, error) => {
     );
 
     // Send a message to the user
-    await context.sendActivity('The bot encountered an error or bug.');
-    await context.sendActivity('To continue to run this bot, please fix the bot source code.');
+    await context.sendActivity('El bot encontro un error o bug.');
+    await context.sendActivity('Para continuar ejecutando este bot, arregle el código fuente del bot.');
 };
 
 // Define a state store for your bot. See https://aka.ms/about-bot-state to learn more about using MemoryStorage.
